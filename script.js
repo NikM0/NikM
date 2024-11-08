@@ -36,10 +36,10 @@ document.querySelectorAll('nav a').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+            behavior: 'smooth'
         });
     });
 });
+
