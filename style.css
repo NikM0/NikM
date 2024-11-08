@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #1E1E1E;
+  color: #E0E0E0;
+  margin: 0;
+  line-height: 1.6;
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #00ADB5;
+}
+
+/* Navigation Styles */
+nav {
+  text-align: center;
+  background-color: #121212;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: #00ADB5;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+  color: #E0E0E0;
+  transform: scale(1.1);
+}
+
+/* Header Section */
+header {
+  text-align: center;
+  padding: 2rem;
+  background-color: #121212;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.1rem;
+}
+
+/* Section Layout */
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #2E2E2E;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* About Section */
+#about p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Skills Section */
+#skills ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#skills li {
+  background-color: #121212;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+
+/* Contact Section */
+#contact p, #contact a {
+  color: #E0E0E0;
+  font-size: 1rem;
+}
+
+#contact a {
+  color: #00ADB5;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #121212;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Glitch Effect for Name */
+#glitch-name {
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+  color: #00ADB5;
+}
+
+#glitch-name:hover {
+  color: #FFFFFF;
+}
+
+#glow:hover {
+  color: #FFFFFF;
+}
