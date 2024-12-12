@@ -1,61 +1,37 @@
-// Glitch Effect on Name
-document.addEventListener("DOMContentLoaded", function () {
-  const glitchName = document.getElementById("glitch-name");
-  const originalText = glitchName.textContent;
-
-  function startGlitch() {
-    const glitchInterval = setInterval(() => {
-      glitchName.textContent = [...originalText]
-        .map((char) => (Math.random() > 0.5 ? getRandomChar() : char))
-        .join("");
-    }, 50);
-
-    setTimeout(() => {
-      clearInterval(glitchInterval);
-      glitchName.textContent = originalText;
-    }, 300); // 0.3 seconds
-  }
-
-  // Trigger glitch effect only when element is visible
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startGlitch();
-        observer.disconnect(); // Stop observing after it's triggered
-      }
+<script>
+  // Prevent the default behavior of the anchor link
+  document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent default link behavior
+      const targetId = this.getAttribute('href').substring(1); // Get the target section ID
+      const targetSection = document.getElementById(targetId);
+      
+      // Scroll the section into the center of the screen
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center', // Scroll to the center of the section
+        inline: 'nearest'
+      });
     });
   });
-  observer.observe(glitchName);
 
-  function getRandomChar() {
-    const chars = "[{}]-_=+1234567890!@#$%^&*()|\/;:,.<>~";
-    return chars[Math.floor(Math.random() * chars.length)];
-  }
-});
-
-// Smooth Scrolling Navigation
-document.addEventListener("DOMContentLoaded", function () {
-  const scroll = new SmoothScroll('nav a[href*="#"]', {
-    speed: 800,
-    offset: 0,
-    updateURL: false
-  });
-});
-
-// Intersection Observer for Lazy Loading Sections
-document.addEventListener("DOMContentLoaded", function () {
+  // Optional: Add a class to make sections fade in when they come into view
   const sections = document.querySelectorAll('section');
-  
-  const observer = new IntersectionObserver((entries) => {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  };
+
+  const observer = new IntersectionObserver(function(entries, observer) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Stop observing once content is visible
       }
     });
-  }, {
-    threshold: 0.5 // Load content when it's 50% in view
-  });
+  }, options);
 
-  sections.forEach(section => observer.observe(section));
-});
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
