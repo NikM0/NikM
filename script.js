@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let sectionFound = false;
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100; // Adjust for nav height
+      const sectionTop = section.offsetTop - 0; // Adjust for nav height
       const sectionBottom = sectionTop + section.offsetHeight;
 
       if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
