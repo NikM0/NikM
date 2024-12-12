@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
+  // Glitch Effect
   const glitchName = document.getElementById("glitch-name");
   const originalText = glitchName.textContent;
 
@@ -16,10 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function triggerRandomGlitch() {
-    startGlitch(); // Start the glitch effect immediately
-
     const randomDelay = Math.random() * 5000 + 4000; // Random delay between 4 to 9 seconds
-    setTimeout(triggerRandomGlitch, randomDelay); // Set up the next glitch after this one completes
+    setTimeout(() => {
+      startGlitch();
+      triggerRandomGlitch(); // Set up the next glitch after this one completes
+    }, randomDelay);
   }
 
   triggerRandomGlitch(); // Initial trigger to start the glitch cycle
